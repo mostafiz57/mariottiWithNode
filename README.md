@@ -1,4 +1,23 @@
-mariottiWithNode
-================
+ilm
+===
 
-Backbone.mariotti.js with node.js app. This app  is for web developers who want to build highly interactive javascript applications. This  will cover using Backbone.Marionette.js to achieve that goal, and will empower you to build your own applications by understanding how Marionette apps are built.
+Book Library Server
+
+This project is a grunt-built backbone/marionette/bootstrap CouchApp with the following sub-apps:
+
+* Login
+* Menu
+* Users
+* Library
+* Book
+* Audio
+* Search
+* Course
+* Translate
+* Accents
+* Glossary
+* Bookstore
+* Reporting
+* Reader
+* CodeSync
+

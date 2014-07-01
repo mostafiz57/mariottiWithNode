@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>couch-app</title>
+        <meta name="description" content="couch-app">
+        <meta name="author" content="mostafiz">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css" >
+        <link href="/assets/css/application.css" rel="stylesheet">
+        <link href="/assets/css/jquery-ui-1.10.0.custom.css" rel="stylesheet">
+        <link href="/assets/css/site.css" rel="stylesheet">
+        <link href="/assets/css/style.css" rel="stylesheet">
+
+
+
+
+
+    </head>
+
+    <body>
+
+        <div id="header-region"></div>
+
+        <div id="main-region" class="container">
+            <p>Here is static content in the web page. You'll notice that it gets replaced by our app as soon as we start it.</p>
+        </div>
+
+        <div id="dialog-region"></div>
+
+        <script type="text/template" id="header-template">
+            <div class="navbar-inner">
+            <div class="container">
+
+            <div class="nav-collapse collapse">
+            <ul class="nav"></ul>
+            </div>
+            </div>
+            </div>
+        </script>
+
+        <script type="text/template" id="header-link">
+            <a href="#<%- url %>"><%- name %></a>
+        </script>
+
+        <script type="text/template" id="contact-list">
+            <thead>
+            <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Zip Code</th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </script>
+
+        <script type="text/template" id="contact-list-none">
+            <td colspan="4">No contacts to display.</td>
+        </script>
+
+        <script type="text/template" id="contact-list-item">
+            <td><%- name %></td>
+            <td><%- email %></td>
+            <td><%- city %></td>
+            <td><%- zipCode %></td>
+            <td>
+            <a href="#contacts/<%- id %>" class="btn btn-small js-show">
+            <i class="icon-eye-open"></i>
+
+            </a>
+            <a href="#contacts/<%- id %>/edit" class="btn btn-small js-edit">
+            <i class="icon-pencil"></i>
+
+            </a>
+            <button class="btn btn-small js-delete">
+            <i class="icon-remove"></i>
+
+            </button>
+            </td>
+        </script>
+
+        <script type="text/template" id="missing-contact-view">
+            <div class="alert alert-error">This contact doesn't exist !</div>
+        </script>
+
+        <script type="text/template" id="contact-view">
+            <h4>User Information</h4>
+            <div class="row">
+            <div class="span12"> <div class="span1"> Name: </div> <div class=span4> <%=name %> </div>  </div>
+            <div class="span12"> <div class="span1"> Email: </div> <div class=span4> <%=email %> </div>  </div>
+            <div class="span12"> <div class="span1"> City: </div> <div class=span4> <%=city %> </div>  </div>
+            <div class="span12"> <div class="span1"> Zip-Code: </div> <div class=span4> <%=zipCode %> </div>  </div>
+            </div>
+            <a href="#contacts/<%- id %>/edit" class="btn btn-small js-edit">
+            <i class="icon-pencil"></i>
+            Edit this contact
+            </a>
+        </script>
+
+        <script type="text/template" id="loading-view">
+            <h1><%- title %></h1>
+            <p><%- message %></p>
+            <div id="spinner"></div>
+        </script>
+
+        <script type="text/template" id="contact-form">
+            <form>
+            <div class="control-group">
+            <label for="contact-name" class="control-label">Name:</label>
+            <input id="contact-name" name="name" type="text" value="<%- name %>"/>
+            </div>
+            <div class="control-group">
+            <label for="contact-email" class="control-label">Email:</label>
+            <input id="contact-email" name="email" type="text" value="<%- email %>"/>
+            </div>
+            <div class="control-group">
+            <label for="contact-city" class="control-label">City:</label>
+            <input id="contact-city" name="city" type="text" value="<%- city %>"/>
+            </div>
+            <div class="control-group">
+            <label for="contact-zipCode" class="control-label">Zip Code:</label>
+            <input id="contact-zipCode" name="zipCode" type="text" value="<%- zipCode %>"/>
+            </div>
+            <button class="btn js-submit">Save</button>
+            </form>
+        </script>
+
+        <script type="text/template" id="contact-list-layout">
+            <div id="panel-region"></div>
+            <div id="contacts-region"></div>
+        </script>
+
+        <script type="text/template" id="contact-list-panel">
+            <button class="btn btn-primary js-new">New contact</button>
+            <form id="filter-form" class="form-search form-inline pull-right">
+            <div class="input-append">
+            </div>
+            </form>
+        </script>
+
+        <script type="text/template" id="about-message">
+            <h3>Couch App Skeleton Application By Marionette</h3>
+            <p>Hopefully, it has served you well !</p>
+        </script>
+
+
+
+
+        <script src="/lib/jquery/jquery.js"></script>
+        <script src="/lib/jquery/jquery-ui-1.10.3.js"></script>
+        <script src="/lib/handlebars/json2.js"></script>
+        <script src="/lib/underscore/underscore.js"></script>
+        <script src="/lib/backbone/backbone.js"></script>
+        <script src="/lib/backbone/backbone.picky.js"></script>
+        <script src="/lib/backbone/backbone.syphon.js"></script>
+        <script src="/lib/backbone/backbone.localstorage.js"></script>
+        <script src="/lib/backbone/backbone.marionette.js"></script>
+        <script src="/lib/handlebars/spin.js"></script>
+        <script src="/lib/handlebars/spin.jquery.js"></script>
+
+        <script src="/lib/handlebars/dialog.js"></script>
+        <script src="/app/app.js"></script>
+        <script src="/lib/handlebars/localstorage.js"></script>
+
+        <script src="/app/models/common.js"></script>
+        <script src="/app/models/header.js"></script>
+        <script src="/app/models/users.js"></script>
+        <script src="/app/view/common/views.js"></script>
+
+        <script src="/app/router/users.js"></script>
+        <script src="/app/view/users/common/views.js"></script>
+        <script src="/app/view/users/list/list_view.js"></script>
+        <script src="/app/controller/users/list/list_controller.js"></script>
+        <script src="/app/view/users/show/show_view.js"></script>
+        <script src="/app/controller/users/show/show_controller.js"></script>
+        <script src="/app/view/users/edit/edit_view.js"></script>
+        <script src="/app/controller/users/edit/edit_controller.js"></script>
+        <script src="/app/view/users/new/new_view.js"></script>
+
+        <script src="/app/router/about.js"></script>
+        <script src="/app/view/about/show/show_view.js"></script>
+        <script src="/app/controller/about/show/show_controller.js"></script>
+
+        <script src="/app/router/header.js"></script>
+        <script src="/app/view/header/list_view.js"></script>
+        <script src="/app/controller/header/list/list_controller.js"></script>
+
+        <script type="text/javascript">
+            App.start();
+        </script>
+    </body>
+</html>
