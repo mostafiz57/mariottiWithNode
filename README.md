@@ -23,7 +23,7 @@ and will empower you to build your own applications by understanding how Marione
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/chadananda/ilm.git"
+    "url": "https://github.com/mostafiz57/mariottiWithNode"
   },
   "scripts": {
     "test": "watch"
@@ -34,7 +34,7 @@ and will empower you to build your own applications by understanding how Marione
   "author": "Mostafizur Rahman",
   "license": "ilm",
   "bugs": {
-    "url": "https://github.com/chadananda/ilm/issues"
+    "url": "https://github.com/mostafiz57/mariottiWithNode"
   }
 }
 
